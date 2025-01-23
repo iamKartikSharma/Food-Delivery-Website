@@ -1,0 +1,120 @@
+
+#feature{
+    font-size: 2rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    background: var(--white-color);
+    color: var(--black-color);
+    text-align: center;
+}
+.Features{
+    background: var(--white-color);
+    display: grid;
+    place-items: center;
+    gap: 2rem;
+    grid-template-columns: repeat(4,1fr);
+    padding: 2rem 2%;
+    & .feature-box{
+        position: relative;
+        height: 15rem;
+        width: 220px;
+        overflow: hidden;
+        transition: all 1s linear;
+        transform-style: preserve-3d !important;
+        &:nth-child(even)
+        { 
+            animation:02s shake-even infinite alternate;
+        }
+        &:nth-child(odd)
+        { 
+            animation:02s shake-odd infinite alternate;
+        }
+        
+         &:hover{
+            transform: rotateY(180deg);
+            scale: 1.1;
+            .front-box{
+                z-index: -1;
+            }
+            .back-box{
+                transform: scaleX(-1);
+            }
+         }
+
+        .front-box{
+            z-index: 1;
+            position: absolute;
+            & img{
+                height: 100%;
+                width: 100%;
+            }
+        }
+        & .back-box{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            gap: 1rem;
+            flex-direction: column;
+            padding: 1rem 0rem;
+            background: var(--theme-color);
+            position: absolute;
+            transform: scaleX(-1);
+            & img{
+                height: 60%;
+                aspect-ratio: 1;
+                border-radius: 50%;
+            }
+            .back-head{
+                font-size: 1.4rem;
+            }
+        }
+
+        .front-box,.back-box{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    
+}
+
+@keyframes shake-even{
+    0%{
+        translate: 0% -5%;
+    }
+    100%{
+        translate: 0% 5%;
+    }
+}
+@keyframes shake-odd{
+    0%{
+        translate: 0% 5%;
+    }
+    100%{
+        translate: 0% -5%;
+    }
+}
+@media (width<=1024px){
+    .Features{
+        grid-template-columns: repeat(2,1fr);
+        & .feature-box{
+            width: 250px;
+        }
+    }
+    .feature-box:nth-child(all){
+        animation: none !important;
+    }
+}
+@media (width<=768px){
+    .Features{
+        grid-template-columns: repeat(1,1fr);
+        & .feature-box{
+            width: 260px;
+        }
+    }
+    .feature-box:nth-child(all){
+        animation: none !important;
+    }
+}

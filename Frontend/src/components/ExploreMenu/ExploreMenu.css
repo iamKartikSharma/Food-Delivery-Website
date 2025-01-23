@@ -1,0 +1,102 @@
+.services{
+    display: grid;
+    place-items: center;
+    background: var(--white-color);
+    grid-template-columns: repeat(10,1fr);
+    gap: 1rem;
+    overflow-x: auto;
+    width: 90%;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    margin: 0 auto;
+    padding: 4rem 2%;   
+}
+.services::-webkit-scrollbar{
+    display: none;
+}
+.explore-menu{
+    align-self: center;
+    display: grid;
+    font-size: 1.2rem;
+    place-items: center;
+    margin-top: 1.5rem;
+    color: var(--black-color);
+    & h2{
+        padding: .1rem;
+        border-bottom: 2px solid red;
+    }
+}
+.All{
+    color: white;
+    background: rgba(128, 128, 128, 0.599);
+    padding: 2.5rem;
+    position: relative;
+    top: -1.8rem;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+    cursor: pointer;
+}
+.category.active{
+    background: var();
+    background: orange;
+    position: relative;
+    top: -1.8rem;
+}
+
+.category.active {
+    border-radius: 100%;
+    padding: 2.5rem;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer; /* Added cursor pointer */
+    .box-head{
+        color: var(--black-color);
+    }
+
+    .icon{
+        height: 6.5rem;
+        aspect-ratio: 1;
+        transition: all .2s linear;
+        -webkit-transition: all .2s linear;
+        -moz-transition: all .2s linear;
+        -ms-transition: all .2s linear;
+        -o-transition: all .2s linear;
+        &:hover{
+            rotate: 360deg;
+        }
+        img{
+            border-radius: 50%;
+            height: 100%;
+            width: 100%;
+        }
+    }
+    .box-head{
+        margin-top: 2rem;
+        font-size: 1.5rem;
+    }
+}
+@media (width<=1024px) {
+    .services{
+        grid-template-columns: repeat(4,1fr);
+        gap: 1rem 0rem;
+        .box{
+            width: 155px;
+        }
+    }
+}
+@media (width<=645px)
+{
+    .services{
+        grid-template-columns: repeat(4,1fr);
+    }
+    .box{
+        width: 135px;
+    }
+}
